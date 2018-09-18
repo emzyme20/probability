@@ -1,0 +1,11 @@
+C:\Data\git\exercises\Probability\Probability\bin\Debug\netcoreapp2.0\Probability.deps.json
+C:\Data\git\exercises\Probability\Probability\bin\Debug\netcoreapp2.0\Probability.runtimeconfig.json
+C:\Data\git\exercises\Probability\Probability\bin\Debug\netcoreapp2.0\Probability.runtimeconfig.dev.json
+C:\Data\git\exercises\Probability\Probability\bin\Debug\netcoreapp2.0\Probability.dll
+C:\Data\git\exercises\Probability\Probability\bin\Debug\netcoreapp2.0\Probability.pdb
+C:\Data\git\exercises\Probability\Probability\obj\Debug\netcoreapp2.0\Probability.csprojResolveAssemblyReference.cache
+C:\Data\git\exercises\Probability\Probability\obj\Debug\netcoreapp2.0\Probability.csproj.CoreCompileInputs.cache
+C:\Data\git\exercises\Probability\Probability\obj\Debug\netcoreapp2.0\Probability.AssemblyInfoInputs.cache
+C:\Data\git\exercises\Probability\Probability\obj\Debug\netcoreapp2.0\Probability.AssemblyInfo.cs
+C:\Data\git\exercises\Probability\Probability\obj\Debug\netcoreapp2.0\Probability.dll
+C:\Data\git\exercises\Probability\Probability\obj\Debug\netcoreapp2.0\Probability.pdb

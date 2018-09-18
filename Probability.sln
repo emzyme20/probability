@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Probability", "Probability\Probability.csproj", "{EC40AB49-DD05-459F-909E-EAFDF535FD01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Probability", "Test.Probability\Test.Probability.csproj", "{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC40AB49-DD05-459F-909E-EAFDF535FD01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC40AB49-DD05-459F-909E-EAFDF535FD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC40AB49-DD05-459F-909E-EAFDF535FD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC40AB49-DD05-459F-909E-EAFDF535FD01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB898952-6D8C-407D-90BE-811B4243286E}
+	EndGlobalSection
+EndGlobal
