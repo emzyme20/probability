@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Probability\Probability.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\..\..\Users\emidd\.nuget\packages\fluentvalidation\8.0.100\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,8 @@
-﻿using MediatR;
+﻿using AutoMapper;
+
+using FluentValidation.AspNetCore;
+
+using MediatR;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Probability.Core.Audit;
 using Probability.Core.Calculations;
+using Probability.Core.Validation;
+using Probability.Models;
+using Probability.ViewModels;
 
 namespace Probability
 {
@@ -25,12 +32,15 @@ namespace Probability
             services.AddScoped<ICombineCalculator, CombineCalculator>();
             services.AddScoped<IEitherCalculator, EitherCalculator>();
             services.AddScoped<IAuditor, Auditor>();
-
-            services.AddSingleton<ICalculatorFactory, CalculatorFactory>();
+            services.AddScoped<ICalculatorFactory, CalculatorFactory>();
 
             services.AddMediatR();
 
-            services.AddMvc();
+            Mapper.Initialize(cfg => { cfg.CreateMap<CalculatorModel, CalculatorViewModel>(); });
+
+            services.AddMvc().AddFluentValidation(
+                fvc =>
+                    fvc.RegisterValidatorsFromAssemblyContaining<Startup>()); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

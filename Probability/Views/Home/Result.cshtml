@@ -1,0 +1,22 @@
+﻿@model Probability.ViewModels.CalculatorResultViewModel
+
+@{
+    ViewData["Title"] = "Calculator Result";
+}
+
+
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <h2>The Result</h2>
+        <p>
+            You selected the calculator type: '@Model.Calculator'
+        </p>
+        <code>
+            @Model.Formula
+        </code>
+        <p>With the values:</p>
+        <div>Left: @Model.Left</div>
+        <div>Right: @Model.Right</div>
+        <p>= @Model.Result</p>
+    </div>
+</div>

@@ -17,6 +17,8 @@ namespace Probability.Core.Calculations
             _auditor = auditor;
         }
 
+        public string Formula { get; } = "P(left) P(right)";
+
         //P(A)P(B) e.g. 0.5 * 0.5 = 0.25
         public double Calculate(double left, double right)
         {
@@ -34,7 +36,8 @@ namespace Probability.Core.Calculations
 
             var result = left * right;
 
-            _logger.LogInformation($"{DateTime.UtcNow:u} - {CalculatorType.Combine} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}");
+            _logger.LogInformation(
+                $"{DateTime.UtcNow:u} - {CalculatorType.Combine} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}");
 
             return result;
         }

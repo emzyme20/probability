@@ -2,9 +2,11 @@
 {
     public interface ICalculator
     {
+        string Formula { get; }
+
         double Calculate(double left, double right);
     }
-    
+
     public interface ICombineCalculator : ICalculator
     {
     }
