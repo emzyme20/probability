@@ -17,6 +17,7 @@ namespace Probability.Core.Calculations
             _auditor = auditor;
         }
 
+        //P(A)P(B) e.g. 0.5 * 0.5 = 0.25
         public double Calculate(double left, double right)
         {
             if (left < 0 || left > 1)
@@ -31,8 +32,11 @@ namespace Probability.Core.Calculations
                 throw new ArgumentOutOfRangeException(nameof(right), "Only values in the range of 0 and 1 are allowed.");
             }
 
-            _logger.LogInformation($"{DateTime.UtcNow.ToString("u")} - ");
-            return left * right;
+            var result = left * right;
+
+            _logger.LogInformation($"{DateTime.UtcNow:u} - {CalculatorType.Combine} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}");
+
+            return result;
         }
     }
 }
