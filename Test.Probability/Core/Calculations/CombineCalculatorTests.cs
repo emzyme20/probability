@@ -28,7 +28,7 @@ namespace Test.Probability.Core.Calculations
         [InlineData(0.8, 0.8, 0.640)]
         [InlineData(0.5, 0.75, 0.375)]
         [InlineData(0, 1, 0)]
-        public void CombinedWith_InRangeValues(double left, double right, double expected)
+        public void CombinedCalculate_InRangeValues_ReturnsResult(double left, double right, double expected)
         {
             var sut = _fixture.Create<ICombineCalculator>();
 
@@ -38,7 +38,7 @@ namespace Test.Probability.Core.Calculations
         }
 
         [Fact]
-        public void CombinedWith_OneOutOfRangeValue()
+        public void CombinedCalculate_OneOutOfRangeValue_WillThrowArgumentOutOfRangeException()
         {
             var sut = _fixture.Create<ICombineCalculator>();
 
@@ -49,7 +49,7 @@ namespace Test.Probability.Core.Calculations
         }
 
         [Fact]
-        public void CombinedWith_BothOutOfRangeValue()
+        public void CombinedCalculate_BothOutOfRangeValue_WillThrowArgumentOutOfRangeException()
         {
             var sut = _fixture.Create<ICombineCalculator>();
 
@@ -60,7 +60,7 @@ namespace Test.Probability.Core.Calculations
         }
 
         [Fact]
-        public void CombinedWith_NegativeValueOutOfRange()
+        public void CombinedCalculate_NegativeValueOutOfRange_WillThrowArgumentOutOfRangeException()
         {
             var sut = _fixture.Create<ICombineCalculator>();
 

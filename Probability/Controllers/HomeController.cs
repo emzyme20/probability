@@ -15,10 +15,12 @@ namespace Probability.Controllers
     public class HomeController : Controller
     {
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public HomeController(IMediator mediator)
+        public HomeController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [Route("")]
@@ -36,9 +38,9 @@ namespace Probability.Controllers
                 return View("Result", resultViewModel);
             }
 
-            return View("Index", Mapper.Map<CalculatorViewModel>(model));
+            return View("Index", _mapper.Map<CalculatorViewModel>(model));
         }
-
+        
         [Route("about")]
         public IActionResult About()
         {

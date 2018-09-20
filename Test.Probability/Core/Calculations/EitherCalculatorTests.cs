@@ -31,7 +31,7 @@ namespace Test.Probability.Core.Calculations
         [InlineData(0.5, 0.75, 0.875)]
         [InlineData(0.5, 0.5, 0.75)]
         [InlineData(0, 1, 1)]
-        public void EitherWith_InRangeValues(double left, double right, double expected)
+        public void EitherCalculate_InRangeValues_ReturnsResult(double left, double right, double expected)
         {
             var sut = _fixture.Create<IEitherCalculator>();
 
@@ -41,7 +41,7 @@ namespace Test.Probability.Core.Calculations
         }
 
         [Fact]
-        public void EitherWith_OneOutOfRangeValue()
+        public void EitherCalculate_OneOutOfRangeValue_WillThrowArgumentOutOfRangeException()
         {
             var sut = _fixture.Create<IEitherCalculator>();
 
@@ -52,7 +52,7 @@ namespace Test.Probability.Core.Calculations
         }
 
         [Fact]
-        public void EitherWith_BothOutOfRangeValue()
+        public void EitherCalculate_BothOutOfRangeValue_WillThrowArgumentOutOfRangeException()
         {
             var sut = _fixture.Create<IEitherCalculator>();
 
@@ -63,7 +63,7 @@ namespace Test.Probability.Core.Calculations
         }
 
         [Fact]
-        public void EitherWith_NegativeValueOutOfRange()
+        public void EitherCalculate_NegativeValueOutOfRange_WillThrowArgumentOutOfRangeException()
         {
             var sut = _fixture.Create<IEitherCalculator>();
 

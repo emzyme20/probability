@@ -24,21 +24,21 @@ namespace Test.Probability.Core.Calculations
             _fixture = new Fixture().Customize(new AutoNSubstituteCustomization());
 
             _fixture.Freeze<IServiceProvider>();
-            
+
             _fixture.Register<ICombineCalculator>(() => new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>()));
-            
+
             _fixture
                 .Create<IServiceProvider>()
                 .GetService(typeof(ICombineCalculator))
                 .Returns(new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>()));
 
             _fixture.Create<IServiceProvider>().GetService(typeof(IEitherCalculator)).Returns(null);
-            
+
             _fixture.Register<ICalculatorFactory>(() => new CalculatorFactory(_fixture.Create<IServiceProvider>()));
         }
 
         [Fact]
-        public void CreateCalculator_WithRegisteredCalculator()
+        public void CreateCalculator_WithRegisteredCalculator_ReturnsCalculator()
         {
             var sut = _fixture.Create<ICalculatorFactory>();
 
@@ -59,7 +59,7 @@ namespace Test.Probability.Core.Calculations
             Action act = () => sut.CreateCalculator(CalculatorType.Either);
 
             act.Should().Throw<Exception>();
-            
+
             _fixture.Create<IServiceProvider>().Received(1).GetService(typeof(ICombineCalculator));
             _fixture.Create<IServiceProvider>().Received(1).GetService(typeof(IEitherCalculator));
         }

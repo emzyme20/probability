@@ -22,7 +22,7 @@ namespace Test.Probability.Core.Validation
         }
 
         [Fact]
-        public void CalculateModel_WithNoCalculatorType()
+        public void CalculateModel_WithNoCalculatorType_IsNotValid()
         {
             var model = _fixture.Build<CalculatorModel>()
                                 .Without(m => m.Calculator)
@@ -40,7 +40,7 @@ namespace Test.Probability.Core.Validation
         }
 
         [Fact]
-        public void CalculateModel_WithInvalidCalculatorType()
+        public void CalculateModel_WithInvalidCalculatorType_IsNotValid()
         {
             var model = _fixture.Build<CalculatorModel>()
                                 .With(m => m.Calculator, "Medium")
@@ -58,7 +58,7 @@ namespace Test.Probability.Core.Validation
         }
 
         [Fact]
-        public void CalculateModel_WithLeftOutOfRange()
+        public void CalculateModel_WithLeftOutOfRange_IsNotValid()
         {
             var model = _fixture.Build<CalculatorModel>()
                                 .With(m => m.Calculator, "Either")
@@ -76,7 +76,7 @@ namespace Test.Probability.Core.Validation
         }
 
         [Fact]
-        public void CalculateModel_WithRightOutOfRange()
+        public void CalculateModel_WithRightOutOfRange_IsNotValid()
         {
             var model = _fixture.Build<CalculatorModel>()
                                 .With(m => m.Calculator, "Combine")

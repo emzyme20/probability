@@ -32,8 +32,7 @@ namespace Probability
             services.AddScoped<ICalculatorFactory, CalculatorFactory>();
 
             services.AddMediatR();
-
-            Mapper.Initialize(cfg => { cfg.CreateMap<CalculatorModel, CalculatorViewModel>(); });
+            services.AddAutoMapper();
 
             services.AddMvc().AddFluentValidation(
                 fvc =>

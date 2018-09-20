@@ -31,7 +31,7 @@ namespace Test.Probability.Core.Handlers
         }
 
         [Fact]
-        public async Task Handle_WillCreateCalculatorToUse()
+        public async Task Handle_WithValidModel_WillCreateCalculatorToUse()
         {
             // Arrange
             var model = new CalculatorModel
