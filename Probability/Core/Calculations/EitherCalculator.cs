@@ -2,7 +2,7 @@
 
 using Microsoft.Extensions.Logging;
 
-using Probability.Core.Audit;
+using Serilog.Context;
 
 namespace Probability.Core.Calculations
 {
@@ -10,7 +10,7 @@ namespace Probability.Core.Calculations
     {
         private readonly ILogger<EitherCalculator> _logger;
 
-        public EitherCalculator(ILogger<EitherCalculator> logger, IAuditor auditor)
+        public EitherCalculator(ILogger<EitherCalculator> logger)
         {
             _logger = logger;
         }
@@ -34,8 +34,13 @@ namespace Probability.Core.Calculations
 
             var result = left + right - left * right;
 
-            _logger.LogInformation(
-                $"{DateTime.UtcNow:u} - {CalculatorType.Combine} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}");
+            var auditLogMessage =
+                $"{CalculatorType.Either} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}";
+
+            using (LogContext.PushProperty("AuditLogEntry", auditLogMessage))
+            {
+                _logger.LogInformation(auditLogMessage);
+            }
 
             return result;
         }

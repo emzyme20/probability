@@ -31,7 +31,14 @@ namespace Probability
 
             Log.Logger =
                 new LoggerConfiguration()
+                    .Enrich.FromLogContext()
                     .ReadFrom.Configuration(configuration)
+                    .WriteTo.Logger(
+                        lc => lc
+                              .Filter.ByIncludingOnly(
+                                  logEvent =>
+                                      logEvent.Properties.ContainsKey("AuditLogEntry"))
+                              .WriteTo.File($"{Path.Combine(Directory.GetCurrentDirectory(), "bin\\AuditLog\\auditlog.log").ToString()}"))
                     .CreateLogger();
 
             try

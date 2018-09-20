@@ -2,22 +2,22 @@
 
 using Microsoft.Extensions.Logging;
 
-using Probability.Core.Audit;
+using Serilog.Context;
 
 namespace Probability.Core.Calculations
 {
     public class CombineCalculator : ICombineCalculator
     {
         private readonly ILogger<CombineCalculator> _logger;
-        private readonly IAuditor _auditor;
 
-        public CombineCalculator(ILogger<CombineCalculator> logger, IAuditor auditor)
+        public CombineCalculator(ILogger<CombineCalculator> logger)
         {
             _logger = logger;
-            _auditor = auditor;
         }
 
         public string Formula { get; } = "P(left) P(right)";
+
+        private CalculatorType Calculator { get; } = CalculatorType.Combine;
 
         //P(A)P(B) e.g. 0.5 * 0.5 = 0.25
         public double Calculate(double left, double right)
@@ -36,8 +36,14 @@ namespace Probability.Core.Calculations
 
             var result = left * right;
 
-            _logger.LogInformation(
-                $"{DateTime.UtcNow:u} - {CalculatorType.Combine} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}");
+            var auditLogMessage =
+                $"Type: {Calculator} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}";
+
+            using (LogContext.PushProperty("AuditLogEntry", auditLogMessage))
+                using (LogContext.PushProperty("CalculatorType", Calculator))
+                {
+                    _logger.LogInformation(auditLogMessage);
+                }
 
             return result;
         }

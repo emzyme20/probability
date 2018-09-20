@@ -9,9 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using Probability.Core.Audit;
 using Probability.Core.Calculations;
-using Probability.Core.Validation;
 using Probability.Models;
 using Probability.ViewModels;
 
@@ -31,7 +29,6 @@ namespace Probability
         {
             services.AddScoped<ICombineCalculator, CombineCalculator>();
             services.AddScoped<IEitherCalculator, EitherCalculator>();
-            services.AddScoped<IAuditor, Auditor>();
             services.AddScoped<ICalculatorFactory, CalculatorFactory>();
 
             services.AddMediatR();
@@ -40,7 +37,7 @@ namespace Probability
 
             services.AddMvc().AddFluentValidation(
                 fvc =>
-                    fvc.RegisterValidatorsFromAssemblyContaining<Startup>()); ;
+                    fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

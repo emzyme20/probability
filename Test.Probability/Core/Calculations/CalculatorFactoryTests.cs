@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 
 using NSubstitute;
 
-using Probability.Core.Audit;
 using Probability.Core.Calculations;
 
 using Xunit;
@@ -26,9 +25,12 @@ namespace Test.Probability.Core.Calculations
 
             _fixture.Freeze<IServiceProvider>();
             
-            _fixture.Register<ICombineCalculator>(() => new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>(), _fixture.Create<IAuditor>()));
+            _fixture.Register<ICombineCalculator>(() => new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>()));
             
-            _fixture.Create<IServiceProvider>().GetService(typeof(ICombineCalculator)).Returns(new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>(), _fixture.Create<IAuditor>()));
+            _fixture
+                .Create<IServiceProvider>()
+                .GetService(typeof(ICombineCalculator))
+                .Returns(new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>()));
 
             _fixture.Create<IServiceProvider>().GetService(typeof(IEitherCalculator)).Returns(null);
             
@@ -57,7 +59,7 @@ namespace Test.Probability.Core.Calculations
             Action act = () => sut.CreateCalculator(CalculatorType.Either);
 
             act.Should().Throw<Exception>();
-
+            
             _fixture.Create<IServiceProvider>().Received(1).GetService(typeof(ICombineCalculator));
             _fixture.Create<IServiceProvider>().Received(1).GetService(typeof(IEitherCalculator));
         }

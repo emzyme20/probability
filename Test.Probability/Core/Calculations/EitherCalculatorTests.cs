@@ -7,7 +7,6 @@ using FluentAssertions;
 
 using Microsoft.Extensions.Logging;
 
-using Probability.Core.Audit;
 using Probability.Core.Calculations;
 
 using Xunit;
@@ -22,9 +21,9 @@ namespace Test.Probability.Core.Calculations
         {
             _fixture = new Fixture().Customize(new AutoNSubstituteCustomization());
 
-            _fixture.Register<ICombineCalculator>(() => new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>(), _fixture.Create<IAuditor>()));
+            _fixture.Register<ICombineCalculator>(() => new CombineCalculator(_fixture.Create<ILogger<CombineCalculator>>()));
 
-            _fixture.Register<IEitherCalculator>(() => new EitherCalculator(_fixture.Create<ILogger<EitherCalculator>>(), _fixture.Create<IAuditor>()));
+            _fixture.Register<IEitherCalculator>(() => new EitherCalculator(_fixture.Create<ILogger<EitherCalculator>>()));
         }
 
         [Theory]
