@@ -4,6 +4,8 @@
     {
         string Formula { get; }
 
+        CalculatorType Calculator { get; }
+
         double Calculate(double left, double right);
     }
 

@@ -17,6 +17,8 @@ namespace Probability.Core.Calculations
 
         public string Formula { get; } = "P(left) + P(right) - P(left) P(right)";
 
+        public CalculatorType Calculator { get; } = CalculatorType.Either;
+
         //P(A) + P(B) - P(A)P(B) e.g. 0.5 + 0.5 – 0.5 * 0.5 = 0.75
         public double Calculate(double left, double right)
         {
@@ -35,7 +37,7 @@ namespace Probability.Core.Calculations
             var result = left + right - left * right;
 
             var auditLogMessage =
-                $"{CalculatorType.Either} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}";
+                $"Type: {Calculator} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}";
 
             using (LogContext.PushProperty("AuditLogEntry", auditLogMessage))
             {

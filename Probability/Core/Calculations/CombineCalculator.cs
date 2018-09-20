@@ -17,7 +17,7 @@ namespace Probability.Core.Calculations
 
         public string Formula { get; } = "P(left) P(right)";
 
-        private CalculatorType Calculator { get; } = CalculatorType.Combine;
+        public CalculatorType Calculator { get; } = CalculatorType.Combine;
 
         //P(A)P(B) e.g. 0.5 * 0.5 = 0.25
         public double Calculate(double left, double right)
