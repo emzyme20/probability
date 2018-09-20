@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 
 using AutoMapper;
@@ -9,6 +6,7 @@ using AutoMapper;
 using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
+
 using Probability.Models;
 using Probability.ViewModels;
 
