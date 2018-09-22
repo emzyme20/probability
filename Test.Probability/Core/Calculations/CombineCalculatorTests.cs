@@ -28,6 +28,7 @@ namespace Test.Probability.Core.Calculations
         [InlineData(0.8, 0.8, 0.640)]
         [InlineData(0.5, 0.75, 0.375)]
         [InlineData(0, 1, 0)]
+        [InlineData(0.999999, 0.999999, 1)]
         public void CombinedCalculate_InRangeValues_ReturnsResult(double left, double right, double expected)
         {
             var sut = _fixture.Create<ICombineCalculator>();
