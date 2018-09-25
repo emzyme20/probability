@@ -9,6 +9,7 @@
         double Calculate(double left, double right);
     }
 
+    // Marker interfaces to allow factory to return the correct calculators registered
     public interface ICombineCalculator : ICalculator
     {
     }

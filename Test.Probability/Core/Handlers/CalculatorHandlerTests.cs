@@ -52,7 +52,7 @@ namespace Test.Probability.Core.Handlers
             var viewModel = await sut.Handle(model, CancellationToken.None);
 
             // Assert
-            viewModel.Result.Should().Be(0.3741);
+            viewModel.Result.Should().Be(0.374);
             viewModel.Formula.Should().NotBeNullOrWhiteSpace();
 
             _fixture.Create<ICalculatorFactory>()

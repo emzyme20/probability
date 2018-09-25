@@ -35,7 +35,7 @@ namespace Test.Probability.Core.Calculations
 
             var result = sut.Calculate(left, right);
 
-            Math.Round(result, 3).Should().Be(expected);
+            result.Should().Be(expected);
         }
 
         [Fact]

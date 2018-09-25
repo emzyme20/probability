@@ -37,14 +37,14 @@ namespace Probability.Core.Calculations
             var result = left + right - left * right;
 
             var auditLogMessage =
-                $"Type: {Calculator} left: {left:0.00#} - right: {right:0.00#} - result: {result:0.00#}";
+                $"Type: {Calculator} left: {left} - right: {right} - result: {result}";
 
             using (LogContext.PushProperty("AuditLogEntry", auditLogMessage))
             {
                 _logger.LogInformation(auditLogMessage);
             }
 
-            return result;
+            return Math.Round(result, 3);
         }
     }
 }
