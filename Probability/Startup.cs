@@ -10,8 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using Probability.Core.Calculations;
-using Probability.Models;
-using Probability.ViewModels;
 
 namespace Probability
 {
