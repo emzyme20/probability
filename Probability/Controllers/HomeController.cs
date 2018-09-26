@@ -6,7 +6,7 @@ using AutoMapper;
 using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
-
+using Probability.Core.Extensions;
 using Probability.Models;
 using Probability.ViewModels;
 
@@ -30,15 +30,16 @@ namespace Probability.Controllers
         }
 
         [Route("calculate")]
-        public async Task<IActionResult> Calculate(CalculatorModel model)
+        [Produces("application/json")]
+        public async Task<IActionResult> Calculate([FromBody]CalculatorModel model)
         {
             if (ModelState.IsValid)
             {
                 var resultViewModel = await _mediator.Send(model);
-                return View("Result", resultViewModel);
+                return Ok("result");
             }
 
-            return View("Index", _mapper.Map<CalculatorViewModel>(model));
+            return BadRequest(ModelState.GetModelStateErrors());
         }
         
         [Route("error")]

@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Probability", "Probability\Probability.csproj", "{EC40AB49-DD05-459F-909E-EAFDF535FD01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Probability", "Test.Probability\Test.Probability.csproj", "{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Probability", "Test.Probability\Test.Probability.csproj", "{FE2B8F74-A89F-47E3-AD2B-068BE321C87D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC4862CC-94E5-4F89-859F-CEE5B4813E6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

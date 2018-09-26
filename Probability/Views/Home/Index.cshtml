@@ -3,7 +3,31 @@
 @{
     ViewData["Title"] = "Calculator";
 }
-<bootstrap-alert class="alert-warning alert-dismissible fade in">
+
+<h1>Getting Started with Vue.js in .NET Core</h1>
+<div id="calculator-form">
+    <select v-model="Calculator" :error-messages="modelState['Calculator']">
+        <option v-for="calculator in CalculatorOptions" v-bind:value="calculator.value">
+            {{ calculator.text }}
+        </option>
+    </select>
+
+    <p>
+        <label>Left</label>
+        <input v-model="Left" :error-messages="modelState['Left']" />
+    </p>
+
+    <p>
+        <label>Right</label>
+        <input v-model="Right" :error-messages="modelState['Right']" />
+    </p>
+
+    <div id="form-buttons">
+        <button type="button" class="danger" v-on:click="ResetForm">Reset Form</button>
+        <button type="button" class="success" ref="SubmitButton" v-bind:disabled="isSubmitDisabled" v-on:click="RunCalculation">Calculate</button>
+    </div>
+</div>
+@*<bootstrap-alert class="alert-warning alert-dismissible fade in">
     <bootstrap-alert-close><span aria-hidden="true">×</span></bootstrap-alert-close>
     <strong>Let's Calc!</strong> Make your choice below.
 </bootstrap-alert>
@@ -45,4 +69,4 @@
             </form>
         </div>
     </div>
-</div>
+</div>*@
